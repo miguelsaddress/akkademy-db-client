@@ -43,8 +43,7 @@ class SClientIntegrationSpec extends FunSpecLike with Matchers {
                 client.set("123", new Integer(123))
                 val futureResult = client.delete("123")
                 val result = Await.result(futureResult, 10 seconds)
-                result shouldBe a [java.lang.Boolean]
-                result should equal(true)
+                result should equal("123")
             }
 
             it("should fail with KeyNotFoundException when deleting a key that does not exist") {
